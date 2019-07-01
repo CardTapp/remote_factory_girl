@@ -1,13 +1,13 @@
-require "remote_factory_girl/version"
-require 'remote_factory_girl/config'
-require 'remote_factory_girl/remotes_config'
-require 'remote_factory_girl/http'
-require 'remote_factory_girl/config_applier'
-require 'remote_factory_girl/hash_to_dot'
-require 'remote_factory_girl/json_to_active_resource'
+require "remote_factory_bot/version"
+require 'remote_factory_bot/config'
+require 'remote_factory_bot/remotes_config'
+require 'remote_factory_bot/http'
+require 'remote_factory_bot/config_applier'
+require 'remote_factory_bot/hash_to_dot'
+require 'remote_factory_bot/json_to_active_resource'
 
-module RemoteFactoryGirl
-  class RemoteFactoryGirl
+module RemoteFactoryBot
+  class RemoteFactoryBot
 
     attr_reader :config, :response
 
@@ -32,13 +32,13 @@ module RemoteFactoryGirl
 
   def self.factories(params = {}, http = Http)
     config_for_remote = config(remotes_config.current_remote)
-    factory = RemoteFactoryGirl.new(config_for_remote)
+    factory = RemoteFactoryBot.new(config_for_remote)
     factory.factories(params, http).to_hash
   end
 
   def self.create(factory_name, attributes = {}, config_applier = ConfigApplier, http = Http)
     config_for_remote = config(remotes_config.current_remote)
-    factory = RemoteFactoryGirl.new(config_for_remote)
+    factory = RemoteFactoryBot.new(config_for_remote)
     factory.create(factory_name, attributes, http)
     config_applier.apply_config(factory.response.to_hash, config_for_remote.to_hash)
   end

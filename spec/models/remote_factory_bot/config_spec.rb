@@ -1,11 +1,11 @@
-require 'remote_factory_girl/config.rb'
-require 'remote_factory_girl/http.rb'
-require 'remote_factory_girl/config_applier'
-require 'remote_factory_girl/hash_to_dot'
+require 'remote_factory_bot/config.rb'
+require 'remote_factory_bot/http.rb'
+require 'remote_factory_bot/config_applier'
+require 'remote_factory_bot/hash_to_dot'
 
-describe RemoteFactoryGirl::Config do
+describe RemoteFactoryBot::Config do
 
-  let(:config) { RemoteFactoryGirl::Config.new }
+  let(:config) { RemoteFactoryBot::Config.new }
 
   describe 'initialize' do
 
@@ -13,7 +13,7 @@ describe RemoteFactoryGirl::Config do
       it 'should be configured with correct defaults' do
         expect(config.home).to eq({ :host      => nil,
                                     :port      => nil,
-                                    :end_point => '/remote_factory_girl/home'})
+                                    :end_point => '/remote_factory_bot/home'})
         expect(config.return_response_as).to eq(:as_hash)
         expect(config.return_with_root).to eq true
         expect(config.return_as_active_resource).to eq false
@@ -27,13 +27,13 @@ describe RemoteFactoryGirl::Config do
     it 'should return a url with port if port is configured' do
       config.home[:host] = 'localhost'
       config.home[:port] = 5555
-      expect(config.home_url).to eq('http://localhost:5555/remote_factory_girl/home')
+      expect(config.home_url).to eq('http://localhost:5555/remote_factory_bot/home')
     end
 
     it 'should return a url without a port if port is not configured' do
       config.home[:host] = 'localhost_no_port'
       config.home[:port] = nil
-      expect(config.home_url).to eq('http://localhost_no_port/remote_factory_girl/home')
+      expect(config.home_url).to eq('http://localhost_no_port/remote_factory_bot/home')
     end
 
     it 'should return a url that is configured with https' do
@@ -41,7 +41,7 @@ describe RemoteFactoryGirl::Config do
       config.home[:host] = 'localhost'
       config.home[:port] = 5555
 
-      expect(config.home_url).to eq('https://localhost:5555/remote_factory_girl/home')
+      expect(config.home_url).to eq('https://localhost:5555/remote_factory_bot/home')
     end
   end
 

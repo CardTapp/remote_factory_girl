@@ -1,6 +1,6 @@
-require 'remote_factory_girl/config'
+require 'remote_factory_bot/config'
 
-module RemoteFactoryGirl
+module RemoteFactoryBot
   class RemotesConfig
 
     attr_writer :current_remote

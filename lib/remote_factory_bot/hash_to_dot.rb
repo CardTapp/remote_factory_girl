@@ -1,6 +1,6 @@
 require 'dish'
 
-module RemoteFactoryGirl
+module RemoteFactoryBot
   class HashToDot
     def self.convert(json)
       Dish(json)

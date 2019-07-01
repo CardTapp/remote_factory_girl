@@ -1,6 +1,7 @@
 require 'rest-client'
+require 'json'
 
-module RemoteFactoryGirl
+module RemoteFactoryBot
   class Http
     def self.post(config, params, http_lib = RestClient)
       new(config, params, http_lib).post

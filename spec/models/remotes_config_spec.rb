@@ -1,11 +1,11 @@
-require 'remote_factory_girl/remotes_config.rb'
+require 'remote_factory_bot/remotes_config.rb'
 
-describe RemoteFactoryGirl::Config do
+describe RemoteFactoryBot::Config do
 
-  let(:remotes_config) { RemoteFactoryGirl::RemotesConfig.new }
+  let(:remotes_config) { RemoteFactoryBot::RemotesConfig.new }
   let(:home_1_config) { double('config') }
   let(:home_2_config) { double('config') }
-  let(:default_remote_name) { RemoteFactoryGirl::RemotesConfig::DEFAULT_REMOTE_NAME }
+  let(:default_remote_name) { RemoteFactoryBot::RemotesConfig::DEFAULT_REMOTE_NAME }
 
   describe '#initialize' do
     context 'default configuration' do

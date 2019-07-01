@@ -1,6 +1,6 @@
-require 'remote_factory_girl/exceptions'
+require 'remote_factory_bot/exceptions'
 
-module RemoteFactoryGirl
+module RemoteFactoryBot
   class Config
 
     attr_accessor :home, :return_response_as, :return_with_root, :return_as_active_resource, :https
@@ -35,7 +35,7 @@ module RemoteFactoryGirl
     end
 
     def raise_if_host_not_set
-      raise RemoteFactoryGirlConfigError.new('RemoteFactoryGirl.config.home[:host] and RemoteFactoryGirl.config.home[:end_point] can not be nil') unless has_home?
+      raise RemoteFactoryBotConfigError.new('RemoteFactoryBot.config.home[:host] and RemoteFactoryBot.config.home[:end_point] can not be nil') unless has_home?
     end
 
     def has_home?
@@ -51,7 +51,7 @@ module RemoteFactoryGirl
     def default_home_config
       { :host      => nil,
         :port      => nil,
-        :end_point => '/remote_factory_girl/home' }
+        :end_point => '/remote_factory_bot/home' }
     end
   end
 end

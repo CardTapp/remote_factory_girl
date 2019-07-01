@@ -1,22 +1,22 @@
 require 'rubygems'
 require 'bundler/setup'
 # our gem
-require 'remote_factory_girl'
+require 'remote_factory_bot'
 
 RSpec.configure do |config|
 
 end
 
-def configure_remote_factory_girl(remote_name: nil,
-                                  host: nil, 
-                                  port: nil, 
-                                  end_point: '/remote_factory_girl/home',
-                                  return_response_as: :as_hash, 
+def configure_remote_factory_bot(remote_name: nil,
+                                  host: nil,
+                                  port: nil,
+                                  end_point: '/remote_factory_bot/home',
+                                  return_response_as: :as_hash,
                                   return_with_root: true,
                                   return_as_active_resource: false,
                                   https: false)
   if remote_name.nil?
-    RemoteFactoryGirl.configure do |config|
+    RemoteFactoryBot.configure do |config|
         config.home                     = {:host      => host,
                                            :port      => port,
                                            :end_point => end_point }
@@ -27,7 +27,7 @@ def configure_remote_factory_girl(remote_name: nil,
     end
 
   else
-    RemoteFactoryGirl.configure(remote_name) do |config|
+    RemoteFactoryBot.configure(remote_name) do |config|
         config.home                     = {:host      => host,
                                            :port      => port,
                                            :end_point => end_point }

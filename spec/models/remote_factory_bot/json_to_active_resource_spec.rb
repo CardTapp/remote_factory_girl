@@ -1,6 +1,6 @@
-require 'remote_factory_girl/json_to_active_resource'
+require 'remote_factory_bot/json_to_active_resource'
 
-describe RemoteFactoryGirl::JsonToActiveResource do
+describe RemoteFactoryBot::JsonToActiveResource do
 
   describe 'when configured to return active_resource object' do
 
@@ -12,7 +12,7 @@ describe RemoteFactoryGirl::JsonToActiveResource do
 
     it 'should return an active resource object' do
       expect(ActiveResource).to receive(:find).with(1)
-      RemoteFactoryGirl::JsonToActiveResource.new({:user => {:id => 1}}).resource(User)
+      RemoteFactoryBot::JsonToActiveResource.new({:user => {:id => 1}}).resource(User)
     end
   end
 end

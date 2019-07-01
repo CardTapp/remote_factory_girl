@@ -1,8 +1,8 @@
-require 'remote_factory_girl/hash_to_dot'
-require 'remote_factory_girl/json_to_active_resource'
-require 'remote_factory_girl/factory_girl_json_parser'
+require 'remote_factory_bot/hash_to_dot'
+require 'remote_factory_bot/json_to_active_resource'
+require 'remote_factory_bot/factory_bot_json_parser'
 
-module  RemoteFactoryGirl
+module  RemoteFactoryBot
   class ConfigApplier
 
     attr_reader :json, :config
@@ -25,7 +25,7 @@ module  RemoteFactoryGirl
     def default_config
       { :hash_to_dot_klass             => HashToDot,
         :json_to_active_resource_klass => JsonToActiveResource,
-        :response_parser               => FactoryGirlJsonParser }
+        :response_parser               => FactoryBotJsonParser }
     end
 
     def apply_config_options

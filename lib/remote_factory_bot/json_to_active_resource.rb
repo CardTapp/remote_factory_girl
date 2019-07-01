@@ -1,4 +1,4 @@
-module RemoteFactoryGirl
+module RemoteFactoryBot
   class JsonToActiveResource
 
     def self.convert(json, config = {})
